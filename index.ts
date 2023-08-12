@@ -20,12 +20,12 @@ const src$ = of(23, 25, 27);
 const empt = empty().pipe(defaultIfEmpty('Observable.empty()!'));
 const srcInterval = interval(1000);
 
-const arr$ = of([src$, empt]);
+const arr$ = [src$, empt];
 
 // .pipe(defaultIfEmpty('Observable.empty()!'))
-//output: 'Observable.empty()!'
 // const subscribe = example.subscribe((val) => console.log(val));
 const subscribe = randomValueInterval$.subscribe((val) => {
-  console.log(arr$[val]);
+  // console.log(arr$[val]);
+  arr$[val]?.subscribe((val) => console.log(val));
   // arr$
 });
